@@ -7,3 +7,17 @@
     {{color.name}} - {{color.hexcode}}
   </li>
 </ul>
+
+<form [formGroup]="colorForm">
+  <div>
+    <label>Color Name</label>
+    <input type="text" formControlName="name" />
+  </div>
+  <div>
+    <label>Color Hexcode</label>
+    <input type="text" formControlName="hexcode" />
+  </div>
+  <button type="button" (click)="addColor()">
+    Add Color
+  </button>
+</form>
