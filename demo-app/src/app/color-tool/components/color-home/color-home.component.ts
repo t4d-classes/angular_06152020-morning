@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Color } from '../../models/Color';
+
 @Component({
   selector: 'app-color-home',
   templateUrl: './color-home.component.html',
@@ -10,6 +12,12 @@ export class ColorHomeComponent implements OnInit {
   // Not valid JS, this a TypeScript
   // model data which can be displayed on the template
   headerText = 'Color Tool';
+
+  colors: Color[] = [
+    { id: 1, name: 'red', hexcode: 'ff0000' },
+    { id: 2, name: 'green', hexcode: '00ff00' },
+    { id: 3, name: 'blue', hexcode: '0000ff' },
+  ];
 
   constructor() { }
 
