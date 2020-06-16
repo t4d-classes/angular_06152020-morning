@@ -10,12 +10,14 @@
 
 <form [formGroup]="colorForm">
   <div>
-    <label>Color Name</label>
-    <input type="text" formControlName="name" />
+    <label>
+      Color Name
+      <input type="text" formControlName="name" />
+    </label>
   </div>
   <div>
-    <label>Color Hexcode</label>
-    <input type="text" formControlName="hexcode" />
+    <label for="hexcode-input">Color Hexcode</label>
+    <input type="text" id="hexcode-input" formControlName="hexcode" />
   </div>
   <button type="button" (click)="addColor()">
     Add Color

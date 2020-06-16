@@ -22,6 +22,13 @@ export class ColorHomeComponent implements OnInit {
 
   colorForm: FormGroup;
 
+  // private fb: FormBuilder;
+
+  // constructor(fb: FormBuilder) {
+  //   this.fb = fb;
+  // }
+
+  // shortcut for the above
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
