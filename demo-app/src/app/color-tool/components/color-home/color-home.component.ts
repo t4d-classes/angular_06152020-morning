@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
 
 import { Color } from '../../models/Color';
 
@@ -8,10 +7,8 @@ import { Color } from '../../models/Color';
   templateUrl: './color-home.component.html',
   styleUrls: ['./color-home.component.css']
 })
-export class ColorHomeComponent implements OnInit {
+export class ColorHomeComponent {
 
-  // Not valid JS, this a TypeScript
-  // model data which can be displayed on the template
   headerText = 'Color Tool';
 
   colors: Color[] = [
@@ -20,27 +17,9 @@ export class ColorHomeComponent implements OnInit {
     { id: 3, name: 'blue', hexcode: '0000ff' },
   ];
 
-  colorForm: FormGroup;
-
-  // private fb: FormBuilder;
-
-  // constructor(fb: FormBuilder) {
-  //   this.fb = fb;
-  // }
-
-  // shortcut for the above
-  constructor(private fb: FormBuilder) { }
-
-  ngOnInit(): void {
-    this.colorForm = this.fb.group({
-      name: '',
-      hexcode: '',
-    });
-  }
-
-  addColor() {
+  addColor(color: Color) {
     this.colors = this.colors.concat({
-      ...this.colorForm.value,
+      ...color,
       id: Math.max(...this.colors.map(c => c.id), 0) + 1,
     });
   }

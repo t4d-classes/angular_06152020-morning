@@ -6,18 +6,6 @@
   </li>
 </ul>
 
-<form [formGroup]="colorForm">
-  <div>
-    <label>
-      Color Name
-      <input type="text" formControlName="name" />
-    </label>
-  </div>
-  <div>
-    <label for="hexcode-input">Color Hexcode</label>
-    <input type="text" id="hexcode-input" formControlName="hexcode" />
-  </div>
-  <button type="button" (click)="addColor()">
-    Add Color
-  </button>
-</form>
+<app-color-form
+  buttonText="Add Color"
+  (submitColor)="addColor($event)"></app-color-form>

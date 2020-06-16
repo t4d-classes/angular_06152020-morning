@@ -5,13 +5,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 
 import { ColorHomeComponent } from './components/color-home/color-home.component';
+import { ColorFormComponent } from './components/color-form/color-form.component';
 
 
 
 @NgModule({
   // anything registered here can be access within a 
   // template within this module
-  declarations: [ColorHomeComponent],
+  declarations: [ColorHomeComponent, ColorFormComponent],
   imports: [
     CommonModule, ReactiveFormsModule, SharedModule,
   ],
