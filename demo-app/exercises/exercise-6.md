@@ -6,6 +6,7 @@
 
 3. When the delete button is clicked, remove the row from the car table.
 
+Hint: Within the Car View Row component, (click)="doDeleteCar(car.id)"
 Hint: to delete an item from an array use the filter function.
 Hint: All changes to the UI are a result of a model change.
 
