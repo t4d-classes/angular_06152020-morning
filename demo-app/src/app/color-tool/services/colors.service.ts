@@ -20,14 +20,19 @@ export class ColorsService {
   constructor() { }
 
   allColors() {
-
+    return this.colorsData.concat();
   }
 
   appendColor(color: Color) {
-
+    this.colorsData = this.colorsData.concat({
+      ...color,
+      id: Math.max(...this.colorsData.map(c => c.id), 0) + 1,
+    });
+    return this;
   }
 
   removeColor(colorId: number) {
-    
+    this.colorsData = this.colorsData.filter(c => c.id !== colorId);
+    return this;
   }
 }
