@@ -10,6 +10,6 @@ Hint: Within the Car View Row component, (click)="doDeleteCar(car.id)"
 Hint: to delete an item from an array use the filter function.
 Hint: All changes to the UI are a result of a model change.
 
-4. Ensure the Add Car functionality still works.
+4. Ensure the Add Car functionality still works. <- MOST IMPORTANT
 
 5. Good luck!

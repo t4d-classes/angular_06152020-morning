@@ -24,4 +24,8 @@ export class CarHomeComponent {
     });
   }
 
+  deleteCar(carId: number) {
+    this.cars = this.cars.filter(c => c.id !== carId);
+  }
+
 }
