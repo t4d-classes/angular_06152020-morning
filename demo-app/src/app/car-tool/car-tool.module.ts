@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -15,7 +16,7 @@ import { CarEditRowComponent } from './components/car-edit-row/car-edit-row.comp
 @NgModule({
   declarations: [CarHomeComponent, CarTableComponent, CarViewRowComponent, CarFormComponent, CarEditRowComponent],
   imports: [
-    CommonModule, ReactiveFormsModule, SharedModule,
+    CommonModule, ReactiveFormsModule, HttpClientModule, SharedModule,
   ],
   exports: [CarHomeComponent],
 })

@@ -1,7 +1,13 @@
 <form [formGroup]="carForm">
+  <div *ngIf="showValidationSummary">
+    Please correct the entries below.
+  </div>
   <div>
     <label for="make-input">Make:</label>
     <input type="text" id="make-input" formControlName="make" />
+    <span>
+      Make is required.
+    </span>
   </div>
   <div>
     <label for="model-input">Model:</label>

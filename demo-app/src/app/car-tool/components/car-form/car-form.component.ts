@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Car } from '../../models/Car';
 
@@ -9,6 +9,8 @@ import { Car } from '../../models/Car';
   styleUrls: ['./car-form.component.css']
 })
 export class CarFormComponent implements OnInit {
+
+  showValidationSummary = false;
 
   @Input()
   buttonText = 'Submit Car';
@@ -24,7 +26,7 @@ export class CarFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.carForm = this.fb.group({
-      make: '',
+      make: [ '', Validators.required ],
       model: '',
       year: 1900,
       color: '',
@@ -33,9 +35,32 @@ export class CarFormComponent implements OnInit {
   }
 
   doSubmitCar() {
-    this.submitCar.emit({
-      ...this.carForm.value,
-    });
+
+    // const makeControl = this.carForm.get('make');
+    // if (makeControl.value) {
+
+    if (this.carForm.valid) {
+
+      this.showValidationSummary = false;
+
+      this.submitCar.emit({
+        ...this.carForm.value,
+      });
+
+      // make input fields blank
+      this.carForm.reset();
+
+      // use the desired initial values
+      this.carForm.setValue({
+        make: '',
+        model: '',
+        year: 1900,
+        color: '',
+        price: 0,
+      });
+    } else {
+      this.showValidationSummary = true;
+    }
   }
 
 
