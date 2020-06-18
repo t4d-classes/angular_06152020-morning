@@ -1,0 +1,7 @@
+<div>
+  <textarea [formControl]="text"></textarea>
+</div>
+
+<div>
+  {{text.value | ellipsis:10}}
+</div>

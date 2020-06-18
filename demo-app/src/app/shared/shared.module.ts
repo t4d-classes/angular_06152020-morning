@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { ToolHeaderComponent } from './components/tool-header/tool-header.component';
+import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
 
 
 
 @NgModule({
-  declarations: [ToolHeaderComponent],
+  declarations: [ToolHeaderComponent, PipeDemoComponent, EllipsisPipe],
   imports: [
-    CommonModule
+    CommonModule, ReactiveFormsModule,
   ],
-  exports: [ToolHeaderComponent],
+  exports: [ToolHeaderComponent, PipeDemoComponent, EllipsisPipe],
 })
 export class SharedModule { }
