@@ -1,38 +1,34 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { Color } from '../models/Color';
 
-// @Injectable means that I can inject services into the ColorsService
-@Injectable(
-// added in Angular 6
-{
-  // register the ColorsService in to the AppModule (root module) of the application
+@Injectable({
   providedIn: 'root'
 })
 export class ColorsService {
 
-  private colorsData: Color[] = [
-    { id: 1, name: 'red', hexcode: 'ff0000' },
-    { id: 2, name: 'green', hexcode: '00ff00' },
-    { id: 3, name: 'blue', hexcode: '0000ff' },
-  ];
-
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   allColors() {
-    return this.colorsData.concat();
+    return this.httpClient
+      .get<Color[]>('http://localhost:3060/colors');
   }
 
   appendColor(color: Color) {
-    this.colorsData = this.colorsData.concat({
-      ...color,
-      id: Math.max(...this.colorsData.map(c => c.id), 0) + 1,
-    });
-    return this;
+    return this
+      .httpClient
+      .post<Color>(
+        'http://localhost:3060/colors',
+        color,
+      );
   }
 
   removeColor(colorId: number) {
-    this.colorsData = this.colorsData.filter(c => c.id !== colorId);
-    return this;
+    return this
+      .httpClient
+      .delete<void>(
+        `http://localhost:3060/colors/${encodeURIComponent(colorId)}`
+      );
   }
 }
