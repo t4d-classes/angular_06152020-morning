@@ -1,8 +1,9 @@
 <app-tool-header [headerText]="headerText"></app-tool-header>
 
 <app-car-table
-  [cars]="cars"
-  (deleteCar)="deleteCar($event)"></app-car-table>
+  [cars]="cars" [editCarIds]="editCarIds"
+  (editCar)="editCar($event)" (deleteCar)="deleteCar($event)"
+  (saveCar)="saveCar($event)" (cancelCar)="cancelOneCar($event)"></app-car-table>
 
 <app-car-form
   buttonText="Add Car"
