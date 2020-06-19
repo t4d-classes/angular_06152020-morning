@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { switchMap } from 'rxjs/operators';
 
 import { Car } from '../../models/Car';
 import { CarsService } from '../../services/cars.service';
@@ -28,12 +29,16 @@ export class CarHomeComponent implements OnInit {
   }
 
   addCar(car: Car) {
-    this.carsSvc.appendCar(car).subscribe(() => {
-      this.refreshCars();
-    });
+    this.carsSvc
+      .appendCar(car)
+      .pipe(switchMap(() => this.carsSvc.allCars()))
+      .subscribe(cars => {
+        this.cars = cars;
+      });
   }
 
   saveCar(car: Car) {
+    // two subscribes, better to use the chaining in add car
     this.carsSvc.replaceCar(car).subscribe(() => {
       this.refreshCars();
     });

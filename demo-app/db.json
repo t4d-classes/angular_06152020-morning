@@ -32,6 +32,14 @@
       "color": "purple",
       "price": 100000,
       "id": 2
+    },
+    {
+      "make": "a",
+      "model": "a",
+      "year": 1900,
+      "color": "red",
+      "price": 0,
+      "id": 3
     }
   ]
 }

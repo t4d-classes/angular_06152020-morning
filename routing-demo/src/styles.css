@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  font-family: arial;
+}
+
+.page-header {
+  background-color: navy;
+  color: white;
+}
+
+.page-footer {
+  color: white;
+  background-color: navy;
+}
+
+.page-sidebar {
+  background-color: orange;
+  padding: 10px;
+}
+
+.page-menu {
+  background: gray;
+}
+
+.page-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.page-menu a:hover {
+  text-decoration: underline;
+}
+

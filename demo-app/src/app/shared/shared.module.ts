@@ -10,10 +10,20 @@ import { FormDemoComponent } from './components/form-demo/form-demo.component';
 
 
 @NgModule({
-  declarations: [ToolHeaderComponent, PipeDemoComponent, EllipsisPipe, FormDemoComponent],
+  declarations: [
+    ToolHeaderComponent,
+    PipeDemoComponent,
+    EllipsisPipe,
+    FormDemoComponent],
   imports: [
-    CommonModule, ReactiveFormsModule,
+    CommonModule,
+    ReactiveFormsModule,
   ],
-  exports: [ToolHeaderComponent, PipeDemoComponent, EllipsisPipe, FormDemoComponent],
+  exports: [
+    ToolHeaderComponent,
+    PipeDemoComponent,
+    EllipsisPipe,
+    FormDemoComponent,
+  ],
 })
 export class SharedModule { }
