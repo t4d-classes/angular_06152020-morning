@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contact-page',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactPageComponent implements OnInit {
 
-  constructor() { }
+  id: number;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = Number(this.route.snapshot.params.id);
   }
 
 }
